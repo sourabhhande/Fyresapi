@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fyers Redirect</title>
+</head>
+<body>
+    <h1>Authorization Successful</h1>
+    <p id="message">Processing your authentication...</p>
+    <script>
+        // Extract the code from the URL
+        const params = new URLSearchParams(window.location.search);
+        const authCode = params.get('code');
+
+        if (authCode) {
+            document.getElementById('message').textContent = `Auth Code: ${authCode}`;
+            console.log("Auth Code:", authCode);
+            // Here you can send the auth code to your server for further processing
+        } else {
+            document.getElementById('message').textContent = "Error: Authorization code not found!";
+        }
+    </script>
+</body>
+</html>
